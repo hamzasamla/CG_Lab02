@@ -12,11 +12,11 @@ function handleFiles(){
 
     reader.addEventListener("load", function() {img.src = reader.result;});
 
-    img.onload=function() {calcAndGraph(img);}
-    if(theGoods) {reader.readAsDataURL(theGoods);}
+    img.onload= function() { calcAndGraph(img); }
+    if(theGoods) { reader.readAsDataURL(theGoods); }
 }
 
-function calcAndGraph(){
+function calcAndGraph(img){
     let rD={}, gD={}, bd={};
     let cv= document.getElementById("mycanvas");
     let ctx=cv.getContext("2d");
@@ -25,6 +25,7 @@ function calcAndGraph(){
     ctx.drawImage(img, 0, 0);
     const iD=ctx.getImageData(0,0,cv.width,cv.height).data;
 
+    for (var i=0; i<256; i++) { rD[i]=0; gD[i]=0; bD[i]=0; }
     for(var i=0; i<iD.length; i+=4){
         rD[iD[i]]++;
         gD[iD[i+1]]++;
@@ -32,7 +33,8 @@ function calcAndGraph(){
 
     }
 
-    histogram(rD, gD, bD);
+    histogram({rD, gD,bD});
+
 }
 
 function myDisplay(){
