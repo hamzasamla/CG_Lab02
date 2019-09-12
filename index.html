@@ -8,15 +8,23 @@
     
 </head>
 <body>
-    <h1>Lab 02</h1>
+    <h1>Lab 02 Histogram</h1>
     <input type="file" id="imageFile" accept=".png, .jpg, .jpeg"></input>
     <canvas id="mycanvas" width="640" height="480" style="border: 1px solid">
     <p>Any Default Content</p>
     </canvas>
 
+    <svg id="svg" width=100 height=100></svg>
+
+    <button id="red" class="focuser">++R</button>
+    <button id="green" class="focuser">++G</button>
+    <button id="blue" class="focuser">++B</button>
+    <button id="blend" class="focuser">Blend</button>
     <!-- <P>Above is the canvas area</P> -->
 
 <script src="script/color.js"></script>
+<!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+<script src="d3\d3.js"></script>
 
 </body>
 </html>
